@@ -1,6 +1,7 @@
 <?php
 session_start();
 require 'conexao.php';
+require 'funcoes.php';
 ?>
 
 <!DOCTYPE html>
@@ -29,8 +30,7 @@ require 'conexao.php';
     </thead>
     <tbody>
     <?php
-        $sql = 'SELECT * FROM tabela';
-        $tabelas = mysqli_query($conn, $sql);
+        $tabelas = buscarDadosTabela($conn);
         if (mysqli_num_rows($tabelas) > 0) {
             foreach($tabelas as $tabela) {
     ?>
