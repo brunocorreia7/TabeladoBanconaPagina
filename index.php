@@ -12,6 +12,7 @@ require 'funcoes.php';
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
@@ -35,7 +36,9 @@ require 'funcoes.php';
         <th>email</th>
         <th>estado</th>
         <th>profissao</th>
+        <th>Ações</th>
       </tr>
+      
     </thead>
     <tbody>
     <?php
@@ -49,6 +52,9 @@ require 'funcoes.php';
       <td><?=$tabela['email']?></td>
       <td><?=$tabela['estado']?></td>
       <td><?=$tabela['profissao']?></td>
+      <td>
+        <a href="editar.php?id=<?=$tabela['id']?>" class="btn btn-success btn-sm"><span class="bi-pencil-fill"></span>&nbsp;Editar</a>
+      </td>
     </tr>
     <?php
             }
