@@ -2,6 +2,11 @@
 session_start();
 require 'conexao.php';
 require 'funcoes.php';
+
+$search = '';
+if (isset($_GET['search'])) {
+    $search = $_GET['search'];
+}
 ?>
 
 <!DOCTYPE html>
@@ -36,6 +41,13 @@ require 'funcoes.php';
     </div>
   <?php endif; ?>
 
+  <form method="GET" action="">
+    <div class="input-group mb-3 w-50">
+      <input type="text" class="form-control" placeholder="Pesquisar" name="search" value="<?php echo $search; ?>">
+      <button class="btn btn-primary" type="submit">Pesquisar</button>
+    </div>
+  </form>
+
   <table class="table table-dark">
     <thead>
       <tr>
@@ -49,7 +61,7 @@ require 'funcoes.php';
     </thead>
     <tbody>
     <?php
-        $tabelas = buscarDadosTabela($conn);
+        $tabelas = buscarDadosTabela($conn, $search);
         if (mysqli_num_rows($tabelas) > 0) {
             foreach($tabelas as $tabela) {
     ?>
@@ -70,6 +82,12 @@ require 'funcoes.php';
     </tr>
     <?php
             }
+        } else {
+    ?>
+    <tr>
+      <td colspan="6">Nenhum resultado encontrado.</td>
+    </tr>
+    <?php
         }
     ?>
     </tbody>

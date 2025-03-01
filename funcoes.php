@@ -1,8 +1,11 @@
 <?php
 require 'conexao.php';
 
-function buscarDadosTabela($conn) {
+function buscarDadosTabela($conn, $search = '') {
     $sql = 'SELECT * FROM tabela WHERE situacao = 1';
+    if ($search) {
+        $sql .= " AND (nome LIKE '%$search%' OR email LIKE '%$search%' OR estado LIKE '%$search%' OR profissao LIKE '%$search%')";
+    }
     return mysqli_query($conn, $sql);
 }
 
