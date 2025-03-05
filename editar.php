@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <h2>Editar usuário</h2>
     </div>
     <div class="menu">
-      <a id="botao" href="index.php" target="_blank">Voltar</a>
+      <a id="botao" href="index.php">Voltar</a>
     </div>
   </nav>
 

@@ -6,10 +6,10 @@ require 'funcoes.php';
 $message = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nome = $_POST['nome'];
-    $email = $_POST['email'];
-    $estado = $_POST['estado'];
-    $profissao = $_POST['profissao'];
+    $nome = trim($_POST['nome']);
+    $email = trim($_POST['email']);
+    $estado = trim($_POST['estado']);
+    $profissao = trim($_POST['profissao']);
 
     if (cadastrarUsuario($conn, $nome, $email, $estado, $profissao)) {
         $message = "Novo usuário cadastrado com sucesso";
@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <h2>Cadastro de usuarios</h2>
     </div>
     <div class="menu">
-      <a id="botao" href="index.php" target="_blank">Voltar</a>
+      <a id="botao" href="index.php">Voltar</a>
     </div>
   </nav>
 
@@ -70,5 +70,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   </form>
 </div>
 
+<script src="js/validacoes.js"></script>
 </body>
 </html>

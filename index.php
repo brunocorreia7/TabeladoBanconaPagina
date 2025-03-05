@@ -28,7 +28,7 @@ if (isset($_GET['search'])) {
       <h2>Cadastro de Usuários</h2>
     </div>
     <div class="menu">
-      <a id="botao" href="cadastro.php" target="_blank">Cadastrar</a>
+      <a id="botao" href="cadastro.php">Cadastrar</a>
     </div>
   </nav>
 

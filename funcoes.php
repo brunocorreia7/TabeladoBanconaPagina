@@ -10,6 +10,12 @@ function buscarDadosTabela($conn, $search = '') {
 }
 
 function cadastrarUsuario($conn, $nome, $email, $estado, $profissao) {
+    // Remover espaços em branco dos valores dos campos
+    $nome = trim($nome);
+    $email = trim($email);
+    $estado = trim($estado);
+    $profissao = trim($profissao);
+
     $sql = "INSERT INTO tabela (nome, email, estado, profissao) VALUES ('$nome', '$email', '$estado', '$profissao')";
     return mysqli_query($conn, $sql);
 }
